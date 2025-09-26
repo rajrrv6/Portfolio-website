@@ -1,0 +1,93 @@
+<div class="contact-container">
+  <div class="contact-header">
+    <h2>Get In Touch</h2>
+    <div class="divider"></div>
+    <p>Have a project in mind or want to discuss opportunities? Feel free to reach out!</p>
+  </div>
+
+  <div class="contact-content">
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input 
+          type="text" 
+          id="name" 
+          formControlName="name"
+          [class.invalid]="name?.invalid && (name?.dirty || name?.touched)">
+        <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="error-message">
+          <span *ngIf="name?.errors?.['required']">Name is required</span>
+          <span *ngIf="name?.errors?.['minlength']">Minimum 3 characters</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input 
+          type="email" 
+          id="email" 
+          formControlName="email"
+          [class.invalid]="email?.invalid && (email?.dirty || email?.touched)">
+        <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="error-message">
+          <span *ngIf="email?.errors?.['required']">Email is required</span>
+          <span *ngIf="email?.errors?.['email']">Please enter a valid email</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Your Message</label>
+        <textarea 
+          id="message" 
+          rows="5" 
+          formControlName="message"
+          [class.invalid]="message?.invalid && (message?.dirty || message?.touched)"></textarea>
+        <div *ngIf="message?.invalid && (message?.dirty || message?.touched)" class="error-message">
+          <span *ngIf="message?.errors?.['required']">Message is required</span>
+          <span *ngIf="message?.errors?.['minlength']">Minimum 10 characters</span>
+        </div>
+      </div>
+
+      <button 
+        type="submit" 
+        class="submit-btn"
+        [disabled]="contactForm.invalid || isLoading">
+        <span *ngIf="!isLoading">Send Message</span>
+        <span *ngIf="isLoading">
+          <span class="spinner"></span> Sending...
+        </span>
+      </button>
+    </form>
+
+    <div class="contact-info">
+      <div class="info-card">
+        <div class="icon-wrapper">
+          <img src="https://placehold.co/40" alt="Email icon" class="contact-icon">
+        </div>
+        <h3>Email Me</h3>
+        <p>student&#64;university.edu</p>
+        <a href="mailto:student&#64;university.edu">Send Email</a>
+      </div>
+
+      <div class="info-card">
+        <div class="icon-wrapper">
+          <img src="https://placehold.co/40" alt="Phone icon" class="contact-icon">
+        </div>
+        <h3>Call Me</h3>
+        <p>+91 98765 43210</p>
+        <a href="tel:+919876543210">Call Now</a>
+      </div>
+
+      <div class="info-card">
+        <div class="icon-wrapper">
+          <img src="https://placehold.co/40" alt="Location icon" class="contact-icon">
+        </div>
+        <h3>Find Me</h3>
+        <p>Bangalore, Karnataka, India</p>
+        <a href="#" target="_blank">View on Map</a>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="isSubmitted" class="success-message">
+    <p>Thank you! Your message has been sent successfully.</p>
+  </div>
+</div>

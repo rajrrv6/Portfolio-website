@@ -1,0 +1,192 @@
+/* Add this at the top of your file */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+.about-container {
+  font-family: 'Inter', sans-serif;
+  background-color: #f9fafb;
+  padding: 6rem 2rem;
+  min-height: 100vh;
+
+  .header-section {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+    
+    h2 {
+      font-size: 2.5rem;
+      color: #1f2937;
+      margin-bottom: 1rem;
+    }
+    
+    .divider {
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(to right, #8b5cf6, #3b82f6);
+      margin: 0 auto 1.5rem;
+    }
+    
+    .intro-text {
+      color: #4b5563;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+  }
+
+  .about-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    .profile-section {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-bottom: 4rem;
+      
+      @media (min-width: 1024px) {
+        flex-direction: row;
+        align-items: center;
+      }
+      
+      .image-wrapper {
+        position: relative;
+        flex: 1;
+        max-width: 600px;
+        
+        img {
+          width: 100%;
+          border-radius: 8px;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+          position: relative;
+          z-index: 2;
+        }
+        
+        .glow-border {
+          position: absolute;
+          top: -10px;
+          left: -10px;
+          right: -10px;
+          bottom: -10px;
+          background: linear-gradient(45deg, #8b5cf6, #3b82f6);
+          border-radius: 12px;
+          z-index: 1;
+          opacity: 0.4;
+        }
+      }
+      
+      .details-grid {
+        flex: 1;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1.5rem;
+        
+        .detail-item {
+          display: flex;
+          gap: 1rem;
+          background: white;
+          padding: 1.5rem;
+          border-radius: 8px;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+          transition: transform 0.3s ease;
+          
+          &:hover {
+            transform: translateY(-5px);
+          }
+          
+          .detail-icon {
+            width: 45px;
+            height: 45px;
+            background-color: #f3f4f6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+          }
+          
+          .detail-text {
+            h4 {
+              color: #1f2937;
+              font-size: 1rem;
+              margin-bottom: 0.2rem;
+            }
+            
+            p {
+              color: #6b7280;
+              font-size: 0.9rem;
+            }
+          }
+        }
+      }
+    }
+    
+    .timeline-section {
+      max-width: 800px;
+      margin: 0 auto;
+      
+      h3 {
+        font-size: 1.8rem;
+        color: #1f2937;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+      
+      .timeline {
+        position: relative;
+        padding-left: 30px;
+        
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 2px;
+          background: linear-gradient(to bottom, #8b5cf6, #3b82f6);
+        }
+        
+        .timeline-item {
+          position: relative;
+          padding-left: 30px;
+          margin-bottom: 2.5rem;
+          
+          &:last-child {
+            margin-bottom: 0;
+          }
+          
+          .timeline-year {
+            position: absolute;
+            left: -15px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(139, 92, 246, 0.3);
+          }
+          
+          .timeline-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            
+            h4 {
+              color: #1f2937;
+              font-size: 1.1rem;
+              margin-bottom: 0.5rem;
+            }
+            
+            p {
+              color: #6b7280;
+              line-height: 1.6;
+            }
+          }
+        }
+      }
+    }
+  }
+}

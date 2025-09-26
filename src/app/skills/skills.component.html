@@ -1,0 +1,36 @@
+<div #skillsContainer class="skills-container">
+  <div class="header-section">
+    <h2>My Skills</h2>
+    <div class="divider"></div>
+    <p class="subtitle">Technologies I've worked with and my proficiency level in each</p>
+  </div>
+
+  <div class="skills-grid">
+    <!-- Add #skillCategory here -->
+    <div *ngFor="let group of skills" class="skill-category" #skillCategory>
+      <h3>{{ group.category }}</h3>
+      <div class="skills-list">
+        <div *ngFor="let skill of group.items" class="skill-item" [style.--level]="skill.level + '%'">
+          <div class="skill-header">
+            <span class="skill-icon">{{ skill.icon }}</span>
+            <span class="skill-name">{{ skill.name }}</span>
+            <span class="skill-percent">{{ skill.level }}%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-progress"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="other-skills">
+    <h3>Other Competencies</h3>
+    <div class="tags-wrapper">
+      <span>Agile Methodology</span>
+      <span>UI/UX Design</span>
+      <span>RESTful APIs</span>
+      <span>Unit Testing</span>
+      <span>Problem Solving</span>
+      <span>Team Leadership</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<nav class="navbar">
+  <div class="nav-container">
+    <span class="logo">TechPortfolio</span>
+
+    <div class="menu-toggle" (click)="toggleMenu()">☰</div>
+
+    <div class="nav-links" [class.open]="isMenuOpen">
+      <a *ngFor="let link of navLinks"
+         [routerLink]="link.path"
+         routerLinkActive="active"
+         (click)="closeMenu()"
+         class="nav-link">
+        {{ link.name }}
+      </a>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
+
+<footer class="footer">
+  <p>&copy; 2024 BTech CSE Portfolio. All rights reserved.</p>
+  <div class="socials">
+    <a href="https://github.com/username" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://linkedin.com/in/username" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</footer>
