@@ -1,6 +1,5 @@
-import { Component, AfterViewInit, QueryList, ViewChildren, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-projects',
@@ -9,10 +8,33 @@ import { gsap } from 'gsap';
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss']
 })
-export class ProjectsComponent implements AfterViewInit {
-  @ViewChildren('projectCard') projectCards!: QueryList<ElementRef>;
+export class ProjectsComponent {
 
   projects = [
+    {
+      title: 'Smart Farming System',
+      description: 'IoT + AI based system for monitoring crops and soil health.',
+      tags: ['Spring Boot', 'Angular', 'IoT', 'AI'],
+      image: 'https://placehold.co/600x400/gray/white?text=Smart+Farming+System',
+      demo: '#',
+      code: '#'
+    },
+    {
+      title: 'Plant Disease Detection',
+      description: 'AI-powered system to detect plant leaf diseases.',
+      tags: ['AI', 'CNN', 'Angular'],
+      image: 'https://placehold.co/600x400/gray/white?text=Plant+Disease+Detection',
+      demo: '#',
+      code: '#'
+    },
+    {
+      title: 'Books Management System',
+      description: 'A full-featured book inventory management web application.',
+      tags: ['Spring Boot', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
+      image: 'https://placehold.co/600x400/gray/white?text=Books+Management+System',
+      demo: '#',
+      code: '#'
+    },
     {
       title: 'AI-Powered Resume Builder',
       description: 'Next-gen resume builder using NLP to optimize content for ATS',
@@ -36,19 +58,6 @@ export class ProjectsComponent implements AfterViewInit {
       image: 'https://placehold.co/600x400/gray/white?text=Portfolio+Website',
       demo: '#',
       code: '#'
-    }
+    },
   ];
-
-  ngAfterViewInit() {
-    if (this.projectCards && this.projectCards.length > 0) {
-      gsap.from(this.projectCards.map(card => card.nativeElement), {
-        opacity: 0,
-        y: 50,
-        stagger: 0.2,
-        duration: 0.8,
-        ease: 'power3.out',
-        delay: 0.5
-      });
-    }
-  }
 }

@@ -31,7 +31,7 @@ export class SkillsComponent implements AfterViewInit {
       { name: 'HTML/CSS', level: 95, icon: '🎨' }
     ]},
     { category: 'Backend', items: [
-      { name: 'Node.js', level: 85, icon: '🖥️' },
+      { name: 'Spring Boot', level: 85, icon: '🍃' }, // Node.js ko Spring Boot se replace kiya gaya hai
       { name: 'Python', level: 80, icon: '🐍' },
       { name: 'Java', level: 75, icon: '☕' },
       { name: 'SQL', level: 82, icon: '🗃️' }

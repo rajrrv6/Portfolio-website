@@ -1,4 +1,11 @@
 @import 'animate.css';
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  color: #ffffff; /* optional, for better contrast on dark background */
+}
 
 /* Smooth scroll + keep default cursor unless you uncomment */
 // html { cursor: none; }

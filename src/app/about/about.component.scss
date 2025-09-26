@@ -1,9 +1,8 @@
-/* Add this at the top of your file */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
 .about-container {
   font-family: 'Inter', sans-serif;
-  background-color: #f9fafb;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
   padding: 6rem 2rem;
   min-height: 100vh;
 
@@ -14,7 +13,7 @@
     
     h2 {
       font-size: 2.5rem;
-      color: #1f2937;
+      color: white; // Changed from #1f2937 to white for visibility
       margin-bottom: 1rem;
     }
     
@@ -26,7 +25,7 @@
     }
     
     .intro-text {
-      color: #4b5563;
+      color: #d1d5db; // Changed from #4b5563 to light gray for visibility
       font-size: 1.1rem;
       line-height: 1.6;
     }
@@ -82,7 +81,7 @@
         .detail-item {
           display: flex;
           gap: 1rem;
-          background: white;
+          background: #1f2937; // Changed from white to a dark gray
           padding: 1.5rem;
           border-radius: 8px;
           box-shadow: 0 2px 5px rgba(0,0,0,0.05);
@@ -95,7 +94,7 @@
           .detail-icon {
             width: 45px;
             height: 45px;
-            background-color: #f3f4f6;
+            background-color: #374151; // Changed from #f3f4f6 to a darker gray
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -105,13 +104,13 @@
           
           .detail-text {
             h4 {
-              color: #1f2937;
+              color: white; // Changed from #1f2937 to white
               font-size: 1rem;
               margin-bottom: 0.2rem;
             }
             
             p {
-              color: #6b7280;
+              color: #9ca3af; // Changed from #6b7280 to a lighter gray
               font-size: 0.9rem;
             }
           }
@@ -125,7 +124,7 @@
       
       h3 {
         font-size: 1.8rem;
-        color: #1f2937;
+        color: white; // Changed from #1f2937 to white
         margin-bottom: 2rem;
         text-align: center;
       }
@@ -169,19 +168,19 @@
           }
           
           .timeline-content {
-            background: white;
+            background: #1f2937; // Changed from white to a dark gray
             padding: 1.5rem;
             border-radius: 8px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.05);
             
             h4 {
-              color: #1f2937;
+              color: white; // Changed from #1f2937 to white
               font-size: 1.1rem;
               margin-bottom: 0.5rem;
             }
             
             p {
-              color: #6b7280;
+              color: #9ca3af; // Changed from #6b7280 to a lighter gray
               line-height: 1.6;
             }
           }

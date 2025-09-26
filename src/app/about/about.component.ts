@@ -10,15 +10,15 @@ import { CommonModule } from '@angular/common';
 })
 export class AboutComponent {
   personalDetails = [
-    { icon: '🎓', title: 'Education', value: 'BTech CSE - Software Tech' },
-    { icon: '🏫', title: 'University', value: 'Premier Tech University' },
-    { icon: '📍', title: 'Location', value: 'Bangalore, India' },
+    { icon: '🎓', title: 'Education', value: 'B.Tech in Computer Science & Engineering' },
+    { icon: '🏫', title: 'University', value: 'Centurion University of Technology and Management Odisha' },
+    { icon: '📍', title: 'Location', value: 'Muzaffarpur, Bihar, India' },
     { icon: '💻', title: 'Focus', value: 'Full Stack Development' }
   ];
 
   timelineItems = [
-    { year: '2023', title: 'Senior Developer', company: 'Tech Solutions Inc.', description: 'Led frontend development team and implemented architecture improvements' },
-    { year: '2021', title: 'Junior Developer', company: 'Digital Creations', description: 'Built responsive UIs and contributed to backend APIs' },
-    { year: '2020', title: 'Intern', company: 'Code Masters', description: 'Learned industry practices and assisted with testing' }
+    { year: '2025', title: 'Intern', company: 'INFOTACT Solutions', description: 'Participated in an industrial training program, gaining hands-on experience in full-stack web development. Applied industry-standard practices, including version control (Git), debugging, and requirement analysis, to contribute to project life cycles.' },
+    { year: '2024', title: 'Project Developer', company: 'Self', description: 'Developed a Smart Farming System using Spring Boot and Angular to assist farmers in managing crops efficiently and built a full-featured book inventory management web application using Spring Boot and MySQL.' },
+    { year: '2022', title: 'Student', company: 'University', description: 'Began B.Tech in Computer Science & Engineering at Centurion University of Technology and Management Odisha.' }
   ];
 }
