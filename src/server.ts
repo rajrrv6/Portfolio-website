@@ -4,9 +4,16 @@ import {
   isMainModule,
   writeResponseToNodeResponse,
 } from '@angular/ssr/node';
-import express from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+
+// New imports for the email functionality
+import * as nodemailer from 'nodemailer';
+import * as dotenv from 'dotenv';
+
+// Load environment variables from .env file
+dotenv.config();
 
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
@@ -15,16 +22,45 @@ const app = express();
 const angularApp = new AngularNodeAppEngine();
 
 /**
- * Example Express Rest API endpoints can be defined here.
- * Uncomment and define endpoints as necessary.
- *
- * Example:
- * ```ts
- * app.get('/api/**', (req, res) => {
- *   // Handle API request
- * });
- * ```
+ * Body parser middleware to handle form data
  */
+app.use(express.json());
+
+/**
+ * API endpoint to handle contact form submissions.
+ */
+app.post('/api/send-email', (req: Request, res: Response) => {
+  const { name, email, message } = req.body;
+
+  // Create a Nodemailer transporter using your email service details
+  const transporter = nodemailer.createTransport({
+    service: 'gmail', // Use 'gmail' or your service provider
+    auth: {
+      user: process.env['EMAIL_USER'],
+      pass: process.env['EMAIL_PASS'],
+    },
+    // SSL certificate verification ko ignore karne ke liye yeh line add karen
+    tls: {
+      rejectUnauthorized: false
+    }
+  });
+
+  const mailOptions = {
+    from: `"Contact Form" <${process.env['EMAIL_USER']}>`,
+    to: process.env['EMAIL_USER'], // The email address you want to receive the messages
+    subject: `New Message from Portfolio: ${name}`,
+    html: `<p>Name: ${name}</p><p>Email: ${email}</p><p>Message: ${message}</p>`,
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.error('Error sending email:', error);
+      return res.status(500).send({ error: 'Failed to send message.' });
+    }
+    console.log('Message sent:', info.response);
+    return res.status(200).send({ message: 'Message sent successfully!' }); // Added return here
+  });
+});
 
 /**
  * Serve static files from /browser
@@ -40,7 +76,7 @@ app.use(
 /**
  * Handle all other requests by rendering the Angular application.
  */
-app.use('/**', (req, res, next) => {
+app.use('/**', (req: Request, res: Response, next: NextFunction) => {
   angularApp
     .handle(req)
     .then((response) =>
