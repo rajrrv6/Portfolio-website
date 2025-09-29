@@ -5,17 +5,15 @@ import {
   writeResponseToNodeResponse,
 } from '@angular/ssr/node';
 import express, { Request, Response, NextFunction } from 'express';
-import { dirname, resolve } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-
-// New imports for the email functionality
 import * as nodemailer from 'nodemailer';
-import * as dotenv from 'dotenv';
 
-// Load environment variables from .env file
-dotenv.config();
 
+// Load environment variables from the correct location
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
+
+
 const browserDistFolder = resolve(serverDistFolder, '../browser');
 
 const app = express();
@@ -58,7 +56,7 @@ app.post('/api/send-email', (req: Request, res: Response) => {
       return res.status(500).send({ error: 'Failed to send message.' });
     }
     console.log('Message sent:', info.response);
-    return res.status(200).send({ message: 'Message sent successfully!' }); // Added return here
+    return res.status(200).send({ message: 'Message sent successfully!' });
   });
 });
 
