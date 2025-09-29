@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AnimationsService } from '../services/animations.service';
 
 @Component({
   selector: 'app-projects',
@@ -8,7 +9,16 @@ import { CommonModule } from '@angular/common';
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss']
 })
-export class ProjectsComponent {
+export class ProjectsComponent implements AfterViewInit {
+  @ViewChild('projectsContainer') projectsContainer!: ElementRef;
+  @ViewChildren('projectCard') projectCards!: QueryList<ElementRef>;
+
+  constructor(private animations: AnimationsService) {}
+
+  ngAfterViewInit() {
+    this.animations.animateElement(this.projectsContainer, { delay: 0.3 });
+    this.animations.animateElements(this.projectCards.toArray(), { delay: 0.5 });
+  }
 
   projects = [
     {
@@ -21,7 +31,7 @@ export class ProjectsComponent {
     },
     {
       title: 'Plant Disease Detection',
-      description: 'AI-powered system to detect plant leaf diseases.',
+      description: 'AI-powered system to detect plant leaf diseases using Machine Learning.',
       tags: ['AI', 'CNN', 'Angular'],
       image: 'https://placehold.co/600x400/gray/white?text=Plant+Disease+Detection',
       demo: '#',

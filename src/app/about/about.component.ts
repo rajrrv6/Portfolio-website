@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AnimationsService } from '../services/animations.service';
 
 @Component({
   selector: 'app-about',
@@ -8,12 +9,24 @@ import { CommonModule } from '@angular/common';
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss']
 })
-export class AboutComponent {
+export class AboutComponent implements AfterViewInit {
+  @ViewChild('aboutContainer') aboutContainer!: ElementRef;
+  @ViewChildren('detailItem') detailItems!: QueryList<ElementRef>;
+  @ViewChildren('timelineItem') timelineItemsQuery!: QueryList<ElementRef>;
+
+  constructor(private animations: AnimationsService) {}
+
+  ngAfterViewInit() {
+    this.animations.animateElement(this.aboutContainer, { delay: 0.3 });
+    this.animations.animateElements(this.detailItems.toArray(), { delay: 0.5 });
+    this.animations.animateElements(this.timelineItemsQuery.toArray(), { delay: 0.7 });
+  }
+  
   personalDetails = [
-    { icon: '🎓', title: 'Education', value: 'B.Tech in Computer Science & Engineering' },
-    { icon: '🏫', title: 'University', value: 'Centurion University of Technology and Management Odisha' },
-    { icon: '📍', title: 'Location', value: 'Muzaffarpur, Bihar, India' },
-    { icon: '💻', title: 'Focus', value: 'Full Stack Development' }
+    { icon: '雌', title: 'Education', value: 'B.Tech in Computer Science & Engineering' },
+    { icon: '将', title: 'University', value: 'Centurion University of Technology and Management Odisha' },
+    { icon: '桃', title: 'Location', value: 'Muzaffarpur, Bihar, India' },
+    { icon: '捗', title: 'Focus', value: 'Full Stack Development' }
   ];
 
   timelineItems = [

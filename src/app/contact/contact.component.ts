@@ -1,9 +1,9 @@
-// src/app/contact/contact.component.ts
-
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, ViewChildren, QueryList } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import emailjs from '@emailjs/browser';
+import { AnimationsService } from '../services/animations.service';
+
 
 @Component({
   selector: 'app-contact',
@@ -12,17 +12,24 @@ import emailjs from '@emailjs/browser';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
-export class ContactComponent {
+export class ContactComponent implements AfterViewInit {
   contactForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
     email: new FormControl('', [Validators.required, Validators.email]),
     message: new FormControl('', [Validators.required, Validators.minLength(10)])
   });
 
+  @ViewChildren('infoCard') infoCards!: QueryList<ElementRef>;
+  
   isSubmitted = false;
   isLoading = false;
 
-  constructor() {}
+  constructor(private animations: AnimationsService) {}
+
+  ngAfterViewInit() {
+    this.animations.animateStaggerElements('.contact-form .form-group', { delay: 0.3 });
+    this.animations.animateElements(this.infoCards.toArray(), { delay: 0.5 });
+  }
 
   async onSubmit() {
     if (this.contactForm.invalid) return;

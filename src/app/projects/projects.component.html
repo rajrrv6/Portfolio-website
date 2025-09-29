@@ -1,11 +1,11 @@
-<div class="projects-container">
+<div #projectsContainer class="projects-container">
   <div class="header">
     <h2>My Projects</h2>
     <div class="divider"></div>
   </div>
 
   <div class="projects-grid">
-    <div *ngFor="let project of projects" class="project-card">
+    <div *ngFor="let project of projects" class="project-card" #projectCard>
       <div class="glow-effect"></div>
       <div class="card-content">
         <div class="image-container">

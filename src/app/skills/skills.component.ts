@@ -21,6 +21,9 @@ export class SkillsComponent implements AfterViewInit {
 
     // Animate each category (without using document)
     this.animations.animateElements(this.skillCategories.toArray(), { delay: 0.5 });
+    
+    // Animate the tags in the "Other Competencies" section
+    this.animations.animateStaggerElements('.other-skills .tags-wrapper span', { delay: 0.7 });
   }
 
   skills = [

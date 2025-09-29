@@ -17,5 +17,13 @@ export class HomeComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.animations.animateHeroSection(this.heroSection);
+    
+    // Animate the about section content
+    this.animations.animateStaggerElements('.about-section h2', { delay: 0.5 });
+    this.animations.animateStaggerElements('.about-section p', { delay: 0.7 });
+
+    // Animate the projects section content
+    this.animations.animateStaggerElements('.projects-preview h2', { delay: 0.9 });
+    this.animations.animateStaggerElements('.project-card', { delay: 1.1 });
   }
 }

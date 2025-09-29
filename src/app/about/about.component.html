@@ -1,4 +1,4 @@
-<div class="about-container">
+<div #aboutContainer class="about-container">
   <div class="header-section">
     <h2>About Me</h2>
     <div class="divider"></div>
@@ -18,7 +18,7 @@
       </div>
 
       <div class="details-grid">
-        <div *ngFor="let detail of personalDetails" class="detail-item">
+        <div *ngFor="let detail of personalDetails" class="detail-item" #detailItem>
           <div class="detail-icon">{{detail.icon}}</div>
           <div class="detail-text">
             <h4>{{detail.title}}</h4>
@@ -31,7 +31,7 @@
     <div class="timeline-section">
       <h3>My Journey</h3>
       <div class="timeline">
-        <div *ngFor="let item of timelineItems" class="timeline-item">
+        <div *ngFor="let item of timelineItems" class="timeline-item" #timelineItem>
           <div class="timeline-year">{{item.year}}</div>
           <div class="timeline-content">
             <h4>{{item.title}} &#64; {{item.company}}</h4>
