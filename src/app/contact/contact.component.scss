@@ -200,6 +200,10 @@
       }
     }
   }
+
+  .initially-hidden {
+    opacity: 0;
+  }
   
   /* Styling for Success Message */
   .success-message {

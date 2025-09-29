@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ElementRef, ViewChildren, QueryList } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, ViewChildren, QueryList, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import emailjs from '@emailjs/browser';
@@ -20,16 +20,18 @@ export class ContactComponent implements AfterViewInit {
   });
 
   @ViewChildren('infoCard') infoCards!: QueryList<ElementRef>;
+  @ViewChild('submitBtn') submitButton!: ElementRef;
   
   isSubmitted = false;
   isLoading = false;
-  isError = false; // Added new state for error handling
+  isError = false;
 
   constructor(private animations: AnimationsService) {}
 
   ngAfterViewInit() {
     this.animations.animateStaggerElements('.contact-form .form-group', { delay: 0.3 });
     this.animations.animateElements(this.infoCards.toArray(), { delay: 0.5 });
+    this.animations.animateElement(this.submitButton, { delay: 0.7 });
   }
 
   async onSubmit() {

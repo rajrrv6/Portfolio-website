@@ -47,8 +47,9 @@
       </div>
 
       <button 
+        #submitBtn
         type="submit" 
-        class="submit-btn"
+        class="submit-btn initially-hidden" 
         [disabled]="contactForm.invalid || isLoading">
         <span *ngIf="!isLoading">Send Message</span>
         <span *ngIf="isLoading">
@@ -87,12 +88,10 @@
     </div>
   </div>
 
-  <!-- Success Message (Shows "Thank you! Your message has been sent successfully.") -->
   <div *ngIf="isSubmitted" class="success-message">
     <p>Thank you! Your message has been sent successfully.</p>
   </div>
   
-  <!-- Error Message (Shows if submission fails) -->
   <div *ngIf="isError" class="error-message-box">
     <p>Failed to send message. Please check your credentials or network connection.</p>
   </div>

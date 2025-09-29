@@ -78,13 +78,17 @@ export class AnimationsService {
   animateElement(element: ElementRef | HTMLElement, options: any = {}) {
     if (typeof window === 'undefined') return;
     const el = element instanceof ElementRef ? element.nativeElement : element;
-    gsap.from(el, {
-      opacity: 0,
-      y: 50,
-      duration: 0.8,
-      ease: 'power3.out',
-      delay: options.delay || 0
-    });
+    gsap.fromTo(el, // Changed from gsap.from to gsap.fromTo
+      { opacity: 0, y: 50 }, // From state
+      {
+        opacity: 1, // To state: opacity 1
+        y: 0, // To state: y position 0
+        duration: 0.8,
+        ease: 'power3.out',
+        delay: options.delay || 0,
+        ...options // Keep other options
+      }
+    );
   }
 
   animateElements(elements: (ElementRef | HTMLElement)[], options: any = {}) {
