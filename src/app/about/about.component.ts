@@ -21,12 +21,12 @@ export class AboutComponent implements AfterViewInit {
     this.animations.animateElements(this.detailItems.toArray(), { delay: 0.5 });
     this.animations.animateElements(this.timelineItemsQuery.toArray(), { delay: 0.7 });
   }
-  
+
   personalDetails = [
-    { icon: '雌', title: 'Education', value: 'B.Tech in Computer Science & Engineering' },
-    { icon: '将', title: 'University', value: 'Centurion University of Technology and Management Odisha' },
-    { icon: '桃', title: 'Location', value: 'Muzaffarpur, Bihar, India' },
-    { icon: '捗', title: 'Focus', value: 'Full Stack Development' }
+    { icon: 'assets/Education_logo.jpg', alt: 'Education icon', title: 'Education', value: 'B.Tech in Computer Science & Engineering' },
+    { icon: 'assets/cutm.png', alt: 'University icon', title: 'University', value: 'Centurion University of Technology and Management Odisha' },
+    { icon: 'assets/findMe.png', alt: 'Location icon', title: 'Location', value: 'Muzaffarpur, Bihar, India' },
+    { icon: 'assets/fullStack.jpg', alt: 'Focus icon', title: 'Focus', value: 'Full Stack Development' }
   ];
 
   timelineItems = [

@@ -19,7 +19,7 @@
 
       <div class="details-grid">
         <div *ngFor="let detail of personalDetails" class="detail-item" #detailItem>
-          <div class="detail-icon">{{detail.icon}}</div>
+          <img [src]="detail.icon" [alt]="detail.alt" class="detail-icon-img">
           <div class="detail-text">
             <h4>{{detail.title}}</h4>
             <p>{{detail.value}}</p>

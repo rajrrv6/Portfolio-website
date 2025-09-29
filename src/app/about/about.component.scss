@@ -86,16 +86,17 @@
           border-radius: 8px;
           box-shadow: 0 2px 5px rgba(0,0,0,0.05);
           transition: transform 0.3s ease;
+          align-items: center;
           
           &:hover {
             transform: translateY(-5px);
           }
           
-          .detail-icon {
+          .detail-icon-img {
             width: 45px;
             height: 45px;
-            background-color: #374151; // Changed from #f3f4f6 to a darker gray
             border-radius: 50%;
+            background-color: #374151; // Changed from #f3f4f6 to a darker gray
             display: flex;
             align-items: center;
             justify-content: center;

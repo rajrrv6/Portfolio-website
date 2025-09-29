@@ -32,7 +32,7 @@ projects = [
     title: 'Plant Disease Detection',
     description: 'AI-powered system to detect plant leaf diseases using Machine Learning.',
     tags: ['AI', 'CNN', 'Angular'],
-    image: 'assets/plant_disease_detection.png',
+    image: 'assets/plant_disease_detection2.png',
     demo: '#',
     code: '#'
   },
@@ -56,7 +56,7 @@ projects = [
       title: 'E-Commerce Analytics Dashboard',
       description: 'Real-time sales analytics platform for e-commerce businesses',
       tags: ['Angular', 'D3.js', 'Firebase', 'Chart.js'],
-      image: 'assets/E-commerce_Website.png',
+      image: 'assets/e_com.png',
       demo: '#',
       code: '#'
     },

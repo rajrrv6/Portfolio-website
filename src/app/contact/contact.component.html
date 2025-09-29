@@ -59,27 +59,27 @@
 
     <div class="contact-info">
       <div class="info-card" #infoCard>
-        <div class="icon-wrapper">
-          <img src="https://placehold.co/40" alt="Email icon" class="contact-icon">
-        </div>
+        
+        <img src="assets/gmail.png" alt="Email icon" class="contact-icon">
+        
         <h3>Email Me</h3>
         <p>rajrrv6&#64;gmail.com</p>
         <a href="mailto:rajrrv6&#64;gmail.com">Send Email</a>
       </div>
 
       <div class="info-card" #infoCard>
-        <div class="icon-wrapper">
-          <img src="https://placehold.co/40" alt="Phone icon" class="contact-icon">
-        </div>
+
+        <img src="assets/phone.png" alt="Phone icon" class="contact-icon">
+
         <h3>Call Me</h3>
         <p>+91 79039 81484</p>
         <a href="tel:+917903981484">Call Now</a>
       </div>
 
       <div class="info-card" #infoCard>
-        <div class="icon-wrapper">
-          <img src="https://placehold.co/40" alt="Location icon" class="contact-icon">
-        </div>
+    
+        <img src="assets/findMe.png" alt="Location icon" class="contact-icon">
+        
         <h3>Find Me</h3>
         <p>Muzaffarpur, Bihar, India</p>
         <a href="#" target="_blank">View on Map</a>
@@ -87,7 +87,13 @@
     </div>
   </div>
 
+  <!-- Success Message (Shows "Thank you! Your message has been sent successfully.") -->
   <div *ngIf="isSubmitted" class="success-message">
     <p>Thank you! Your message has been sent successfully.</p>
+  </div>
+  
+  <!-- Error Message (Shows if submission fails) -->
+  <div *ngIf="isError" class="error-message-box">
+    <p>Failed to send message. Please check your credentials or network connection.</p>
   </div>
 </div>

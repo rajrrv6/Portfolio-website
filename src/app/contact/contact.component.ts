@@ -23,6 +23,7 @@ export class ContactComponent implements AfterViewInit {
   
   isSubmitted = false;
   isLoading = false;
+  isError = false; // Added new state for error handling
 
   constructor(private animations: AnimationsService) {}
 
@@ -34,6 +35,8 @@ export class ContactComponent implements AfterViewInit {
   async onSubmit() {
     if (this.contactForm.invalid) return;
 
+    // Reset feedback states
+    this.isError = false; 
     this.isLoading = true;
 
     try {
@@ -53,10 +56,15 @@ export class ContactComponent implements AfterViewInit {
       console.log('Email sent successfully:', response);
       this.isSubmitted = true;
       this.contactForm.reset();
-      setTimeout(() => (this.isSubmitted = false), 3000);
+      // Use requestAnimationFrame before timeout to ensure UI update
+      requestAnimationFrame(() => {
+        setTimeout(() => (this.isSubmitted = false), 3000);
+      });
+      
     } catch (error) {
       console.error('Failed to send email:', error);
-      alert('Could not send message. Please try again.');
+      this.isError = true; // Set error state on failure
+      setTimeout(() => (this.isError = false), 5000);
     } finally {
       this.isLoading = false;
     }
