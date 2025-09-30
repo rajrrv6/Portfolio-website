@@ -5,3 +5,14 @@
 [functions]
   directory = "netlify/functions"
   node_bundler = "esbuild"
+
+# This section ensures the server function is bundled as a modern ES Module
+[[functions.server]]
+  node_bundler = "esbuild"
+  node_format = "esm" # <--- This is the crucial line
+
+# This redirect rule sends all traffic to your server function
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/server"
+  status = 200
