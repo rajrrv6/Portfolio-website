@@ -1,11 +1,3 @@
 [build]
-  command = "npm run build"
+  command = "ng build"
   publish = "dist/portfolio-website/browser"
-
-[functions]
-  directory = "dist/portfolio-website/server"
-
-[[redirects]]
-  from = "/*"
-  to = "/.netlify/functions/main"
-  status = 200
