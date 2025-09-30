@@ -3,10 +3,5 @@
   publish = "dist/portfolio-website/browser"
 
 [functions]
-  directory = "dist/portfolio-website/server"
+  directory = "netlify/functions"
   node_bundler = "esbuild"
-
-[[redirects]]
-  from = "/*"
-  to = "/.netlify/functions/main"  # <-- This is the corrected line
-  status = 200
