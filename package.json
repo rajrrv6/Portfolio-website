@@ -1,14 +1,14 @@
 {
   "name": "portfolio-website",
   "version": "0.0.0",
-  "scripts": {
-    "ng": "ng",
-    "start": "node serve.js",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:portfolio-website": "node dist/portfolio-website/server/server.mjs"
-  },
+"scripts": {
+  "ng": "ng",
+  "start": "ng serve",
+  "build": "ng build",
+  "watch": "ng build --watch --configuration development",
+  "test": "ng test",
+  "serve:ssr:portfolio-website": "node dist/portfolio-website/server/server.mjs"
+},
   "private": true,
   "dependencies": {
     "@angular/animations": "^19.2.14",
