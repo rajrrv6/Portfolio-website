@@ -2,7 +2,10 @@
   command = "npm run build"
   publish = "dist/portfolio-website/browser"
 
-[[functions]]
-  directory = "dist/portfolio-website"
-  name = "server"
-  path = "/*"
+[functions]
+  directory = "dist/portfolio-website/server"
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/main"
+  status = 200
